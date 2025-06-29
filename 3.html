@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Profile Card</title>
+</head>
+<body>
+
+ 
+  <style>
+    
+    :root {
+      --gradient-start: #6a11cb;
+      --gradient-end: #2575fc;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 1rem; 
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0.5rem 0.5rem 2rem rgba(0,0,0,0.1);
+      overflow: hidden;
+      width: 100%;
+      max-width: 25rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .card__header {
+      position: relative;
+      height: 8rem;
+      background: linear-gradient(270deg, #b897db, #5b8bdd, #a5647d);
+      background-size: 600% 600%;
+      animation: gradientShift 8s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card__header::before {
+      content: '';
+      position: absolute;   
+      inset: 0;
+      background: inherit;
+      filter: blur(1rem);
+      z-index: 0;   
+    }      
+    .avatar {
+      position: relative;
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+      z-index: 1;
+    }
+    .card__body {
+      padding: 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .card__body h2 {
+      font-size: 1.5rem;
+    }
+    .card__body h3 {
+      font-size: 1rem;
+      color: #666;
+      font-weight: normal;
+    }
+    .card__body p {
+      font-size: 0.875rem;
+      color: #444;
+      line-height: 1.4;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+    .stat {
+      flex: 1;
+      font-size: 0.875rem;
+    }
+    .stat strong {
+      display: block;
+      font-size: 1.125rem;
+    }
+    .contact-btn {
+      margin: 1.5rem auto 0;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 2rem;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .contact-btn:hover {
+      transform: scale(1.05);
+    }
+   
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+   
+
+
+
+    @media (min-width: 48rem) {
+      .card {
+        max-width: 30rem;
+      }
+      body {
+        padding: 2rem;
+      }
+    } 
+
+
+
+    @media (min-width: 64rem) { 
+      .card {
+        flex-direction: row;
+      }
+      .card__header, .card__body {
+        flex: 1;
+      }
+      .card__header {
+        height: auto;
+        flex: 1;
+      }
+      .avatar {
+        width: 8rem;
+        height: 8rem;
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card__header">
+      <div class="avatar">ME</div>
+    </div>
+    <div class="card__body">
+      <h2>Sara Alhabeish</h2>
+      <h3>Frontend Developer</h3>
+      <p>Passionate about creating beautiful and functional web experiences. Specializing in modern CSS techniques and responsive design.</p>
+      <div class="stats">
+        <div class="stat"><strong>127</strong> Projects</div>
+        <div class="stat"><strong>2.5k</strong> Followers</div>
+        <div class="stat"><strong>89</strong> Following</div>
+      </div>
+      <button class="contact-btn">Contact Me</button>
+    </div>
+  </div>
+</body>
+</html>  
